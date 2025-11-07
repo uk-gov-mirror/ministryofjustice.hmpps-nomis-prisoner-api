@@ -16,12 +16,11 @@ class ConnectionAspect(
   private val auditService: AuditModuleService,
   private val dataSource: DataSource,
 ) {
-  // TODO class level and jakarta transactional
-  // This is not quite right - we should just be able to pick up the Transactional
   @Around(
-    "@within(org.springframework.stereotype.Repository) " +
-      "@annotation(org.springframework.transaction.annotation.Transactional) " +
-      "|| @annotation(jakarta.transaction.Transactional)",
+    "@within(org.springframework.transaction.annotation.Transactional) || " +
+      "@annotation(org.springframework.transaction.annotation.Transactional) || " +
+      "@within(jakarta.transaction.Transactional) || " +
+      "@annotation(jakarta.transaction.Transactional)",
   )
   fun applyAuditModuleAround(joinPoint: ProceedingJoinPoint): Any? {
     val module = AuditContextHolder.get()
