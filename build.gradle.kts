@@ -25,16 +25,16 @@ dependencies {
   val oracleVersion = ":23.26.1.0.0"
   runtimeOnly("com.oracle.database.jdbc:ojdbc11$oracleVersion")
 
-  testImplementation("uk.gov.justice.service.hmpps:hmpps-kotlin-spring-boot-starter-test:3.0.0")
+  testImplementation("uk.gov.justice.service.hmpps:hmpps-kotlin-spring-boot-starter-test:3.0.1")
   testImplementation("org.springframework.boot:spring-boot-test-autoconfigure")
   testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
   testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
 
   testImplementation("org.awaitility:awaitility-kotlin:4.3.0")
-  testImplementation("io.swagger.parser.v3:swagger-parser:2.1.45") {
+  testImplementation("io.swagger.parser.v3:swagger-parser:2.1.47") {
     exclude(group = "io.swagger.core.v3")
   }
-  testImplementation("io.swagger.core.v3:swagger-core-jakarta:2.2.52")
+  testImplementation("io.swagger.core.v3:swagger-core-jakarta:2.2.54")
   testImplementation("org.springframework.security:spring-security-test")
   testImplementation("io.opentelemetry:opentelemetry-sdk-testing")
 }
